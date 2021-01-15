@@ -1,6 +1,6 @@
 [package]
 name = "hbsenvsubst"
-version = "0.0.0"
+version = "0.0.1"
 authors = ["Steve Jabour <steve@jabour.me>"]
 edition = "2018"
 license = "MIT"
