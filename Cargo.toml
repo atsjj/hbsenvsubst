@@ -4,6 +4,7 @@ version = "0.0.0"
 authors = ["Steve Jabour <steve@jabour.me>"]
 edition = "2018"
 license = "MIT"
+license-file = "LICENSE"
 keywords = ["env", "environment", "handlebars"]
 description = "Substitutes the values of environment variables, but with handlebars."
 readme = "README.md"
