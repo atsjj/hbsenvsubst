@@ -106,7 +106,7 @@ handlebars_helper!(sub: |x: i64, y: i64| x - y);
 #[async_std::main]
 async fn main() -> Result<()> {
     clap_app!(myapp =>
-        (version: "0.0.1")
+        (version: "0.0.2")
         (author: "Steve Jabour <steve@jabour.me>")
         (about: "Substitutes the values of environment variables, but with handlebars.")
         (@arg CONFIG: -c --config +takes_value "Sets a custom config file")
