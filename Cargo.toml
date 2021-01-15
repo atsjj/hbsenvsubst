@@ -3,6 +3,12 @@ name = "hbsenvsubst"
 version = "0.0.0"
 authors = ["Steve Jabour <steve@jabour.me>"]
 edition = "2018"
+license = "MIT"
+keywords = ["env", "environment", "handlebars"]
+description = "Substitutes the values of environment variables, but with handlebars."
+readme = "README.md"
+homepage = "https://github.com/atsjj/hbsenvsubst"
+repository = "https://github.com/atsjj/hbsenvsubst"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
