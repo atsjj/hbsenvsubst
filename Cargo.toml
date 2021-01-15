@@ -1,0 +1,16 @@
+[package]
+name = "hbsenvsubst"
+version = "0.0.0"
+authors = ["Steve Jabour <steve@jabour.me>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.38"
+async-std = { version = "1.9.0", features = ["attributes"] }
+clap = { git = "https://github.com/clap-rs/clap.git", tag = "v3.0.0-beta.2", version = "3.0.0-beta.2" }
+handlebars = "3.5.2"
+num_cpus = "1.13.0"
+serde = { version = "1.0.119", features = ["derive"] }
+sysinfo = "0.15.9"
