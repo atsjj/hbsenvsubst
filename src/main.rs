@@ -19,26 +19,26 @@ struct TemplateRenderer<'a> {
 
 #[derive(Serialize)]
 struct TemplateRendererContext {
-    cpu: HashMap<String, String>,
+    cpu: HashMap<String, i64>,
     env: HashMap<String, String>,
-    mem: HashMap<String, String>,
+    mem: HashMap<String, i64>,
 }
 
 impl TemplateRendererContext {
     pub fn new() -> Result<TemplateRendererContext> {
-        let mut cpu = HashMap::<String, String>::new();
-        let mut mem = HashMap::<String, String>::new();
+        let mut cpu = HashMap::<String, i64>::new();
+        let mut mem = HashMap::<String, i64>::new();
         let env = HashMap::<String, String>::from_iter(env::vars());
         let system = sysinfo::System::new_all();
 
-        cpu.insert("logical".to_string(), num_cpus::get().to_string());
-        cpu.insert("physical".to_string(), num_cpus::get_physical().to_string());
+        cpu.insert("logical".to_string(), num_cpus::get() as i64);
+        cpu.insert("physical".to_string(), num_cpus::get_physical() as i64);
 
-        mem.insert("total".to_string(), system.get_total_memory().to_string());
-        mem.insert("used".to_string(), system.get_used_memory().to_string());
+        mem.insert("total".to_string(), system.get_total_memory() as i64);
+        mem.insert("used".to_string(), system.get_used_memory() as i64);
         mem.insert(
             "free".to_string(),
-            (system.get_total_memory() - system.get_used_memory()).to_string(),
+            (system.get_total_memory() - system.get_used_memory()) as i64,
         );
 
         Ok(TemplateRendererContext { cpu, env, mem })
@@ -106,7 +106,7 @@ handlebars_helper!(sub: |x: i64, y: i64| x - y);
 #[async_std::main]
 async fn main() -> Result<()> {
     clap_app!(myapp =>
-        (version: "0.1.0")
+        (version: "0.0.1")
         (author: "Steve Jabour <steve@jabour.me>")
         (about: "Substitutes the values of environment variables, but with handlebars.")
         (@arg CONFIG: -c --config +takes_value "Sets a custom config file")
